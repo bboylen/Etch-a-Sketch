@@ -1,0 +1,32 @@
+:root {
+    --grid-rows: 1;
+    --grid-cols: 1;
+
+}
+
+body, html {
+    overflow: hidden;
+}
+.cell   {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#container {
+    display: grid; 
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    gap: 0px;
+    height: 35vw;
+    width: 35vw;
+    margin: auto;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+#button {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+

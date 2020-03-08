@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Etch-a-Sketch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="button">
+  <button name="clear" id="clear" onclick="clearGrid()">Clear</button>
+</div>
+<div id="container">
+</div>
+
+<script>
+  const container = document.getElementById("container");
+
+  function makeGrid(rows, cols) {
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for (i = 0; i < rows * cols; i++) {
+      let cell = document.createElement("div");
+      container.appendChild(cell).className = "cell";
+      cell.addEventListener('mouseenter', function() {
+        cell.style.backgroundColor = "black";
+      })
+    }
+  }
+  makeGrid(16,16);
+
+  function clearGrid() {
+    while (container.hasChildNodes()) {
+      container.removeChild(container.lastChild);
+    }
+    dimension = prompt("How many squares wide/high?");
+    makeGrid(dimension,dimension);
+  }
+
+</script>
+
+</body>
